@@ -420,9 +420,20 @@ function updateSettings(){
 }
 
 /* ---------- Notifications ---------- */
+if('serviceWorker' in navigator){
+  navigator.serviceWorker.register('sw.js').catch(e=>console.error('SW register failed', e));
+}
 function notify(title, body){
-  if('Notification' in window && Notification.permission === 'granted'){
-    try{ new Notification(title, { body, icon:'' }); }catch(e){}
+  if(!('Notification' in window)) return;
+  if(Notification.permission !== 'granted') return;
+  if('serviceWorker' in navigator && navigator.serviceWorker.controller !== undefined){
+    navigator.serviceWorker.ready.then(reg=>{
+      reg.showNotification(title, { body, icon:'icon-192.png', badge:'icon-192.png' });
+    }).catch(()=>{
+      try{ new Notification(title, { body }); }catch(e){}
+    });
+  } else {
+    try{ new Notification(title, { body }); }catch(e){}
   }
 }
 function requestNotifPermission(){
