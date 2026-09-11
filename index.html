@@ -72,6 +72,7 @@
       padding-bottom:calc(28px + env(safe-area-inset-bottom));
     }
     .sidebar.mobile-open{ display:flex; animation:sheetUp .25s cubic-bezier(.2,.9,.3,1); }
+    .sidebar-addbtn{ display:none; }
     .sheet-handle{ width:36px; height:4px; border-radius:99px; background:var(--line-strong); margin:0 auto 6px; }
     .sheet-close{
       position:absolute; top:16px; right:16px; background:var(--panel-2); border:1px solid var(--line-strong);
@@ -349,7 +350,7 @@
   .overlay{
     position:fixed; inset:0; background:rgba(15,23,42,.40);
     backdrop-filter:blur(4px);
-    display:none; align-items:center; justify-content:center; padding:20px; z-index:50;
+    display:none; align-items:center; justify-content:center; padding:20px; z-index:70;
   }
   .overlay.show{ display:flex; }
   .modal{
@@ -670,6 +671,7 @@ let selectedRepeat = 'none';
 
 function openModal(taskId){
   haptic();
+  closeSettings();
   editingTaskId = taskId || null;
   document.getElementById('overlay').classList.add('show');
   document.getElementById('modalTitle').textContent = editingTaskId ? 'Edit task' : 'Add task';
