@@ -5,7 +5,7 @@
    3. handles the Done / Snooze buttons on a notification
 */
 
-const CACHE = 'gobb-v2';
+const CACHE = 'gobb-v3';
 const SHELL = ['./', './index.html', './manifest.json', './icon-192.png', './icon-512.png', './icon-180.png'];
 const DATA_KEY = './__gobb_schedule';
 
