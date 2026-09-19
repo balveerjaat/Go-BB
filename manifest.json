@@ -1,14 +1,18 @@
 {
   "name": "Go BB",
   "short_name": "Go BB",
+  "description": "Today's tasks, weekly and monthly progress, with alarms.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#EEF3FB",
-  "theme_color": "#EEF3FB",
+  "background_color": "#080C16",
+  "theme_color": "#080C16",
+  "categories": ["productivity", "lifestyle"],
   "icons": [
     { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
-    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-maskable-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
   ]
 }
